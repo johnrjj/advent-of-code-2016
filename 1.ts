@@ -1,8 +1,8 @@
 const computeBlockDistance = (steps: string[]): number => {
   let xPos: number = 0;
   let yPos: number = 0;
-  let xyMagnitude = { x: 0, y: 1 }; // up in the y direction to begin...
-  const visited = new Set<string>();
+  let xyMagnitude: { x: number, y: number } = { x: 0, y: 1 }; // up in the y direction to begin...
+  const visited: Set<string> = new Set<string>();
 
   visited.add(`${xPos}#${yPos}`);
   for (let i = 0; i < steps.length; i++) {
