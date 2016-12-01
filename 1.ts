@@ -4,7 +4,7 @@ const computeBlockDistance = (steps): number => {
   let xPos: number = 0;
   let yPos: number = 0;
   let xyMagnitude = { x: 0, y: 1 };// up in the y direction to begin...
-  const visited = new Set();
+  const visited = new Set<string>();
   
   visited.add(`${xPos}#${yPos}`);
   for (let i = 0; i < steps.length; i++) {
@@ -17,17 +17,16 @@ const computeBlockDistance = (steps): number => {
     for (let j = 0; j < distance; j++) {
       xPos += xyMagnitude.x;
       yPos += xyMagnitude.y;
-      const keyPos = `${xPos}#${yPos}`;
-      if (visited.has(keyPos)) {
+      const hash = `${xPos}#${yPos}`;
+      if (visited.has(hash)) {
         return Math.abs(xPos) + Math.abs(yPos);
       } else {
-        visited.add(keyPos);
+        visited.add(hash);
       }
     }
   }
   return Math.abs(xPos) + Math.abs(yPos);
 }
 
-const numberOfBlocks: number = computeBlockDistance(instructions);
-console.log(numberOfBlocks);
-
+const totalBlocksAway: number = computeBlockDistance(instructions);
+console.log(totalBlocksAway);
