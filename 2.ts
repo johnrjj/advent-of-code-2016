@@ -1,9 +1,10 @@
 const getCombination = (grid: string[][], sequences: string[], startingX: number = 0, startingY: number = 2): string => {
-  let x = startingX;
-  let y = startingY;
   const MAX_X = grid[0].length - 1;
   const MAX_Y = grid.length - 1;
   const code = []
+  
+  let x = startingX;
+  let y = startingY;
 
   for (let i = 0; i < sequences.length; i++) {
     for (let j = 0; j < sequences[i].length; j++) {
