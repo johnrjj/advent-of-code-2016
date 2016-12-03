@@ -45,6 +45,5 @@ const trianglesVertically = [...trianglesColumn0, ...trianglesColumn1, ...triang
 const validTrianglesVertically = countTriangles(trianglesVertically);
 console.log(`# of valid vertical triangles: ${validTrianglesVertically}`);
 
-const trianglesHorizontally = data.split('\n').map(raw => raw.trim().split(/\s+/));
-const validTrianglesHorizontally = countTriangles(trianglesHorizontally);
+const validTrianglesHorizontally = countTriangles(triangles);
 console.log(`# of valid horizontal triangles: ${validTrianglesHorizontally}`);
