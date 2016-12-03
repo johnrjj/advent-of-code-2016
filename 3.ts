@@ -2,14 +2,16 @@ import { data } from './3-input-data';
 
 const isValidTriangle = (a: number,  b: number,  c: number): boolean => {
   let longestSide = a;
-  if (b > longestSide )
-      longestSide = b;
-  if(c > longestSide )
-      longestSide = c;
+  if (b > longestSide) {
+    longestSide = b;
+  }
+  if (c > longestSide) {
+    longestSide = c;
+  }
   return (longestSide < a + b + c - longestSide);
 };
 
-const countTriangles = (triangles: string[][]) => {
+const countValidTriangles = (triangles: string[][]) => {
   let validTriangles = 0;
   triangles.forEach(triangle => {
     const a = parseInt(triangle[0]);
@@ -22,7 +24,7 @@ const countTriangles = (triangles: string[][]) => {
   return validTriangles;
 };
 
-const getTrianglesForColumn = (data: string[][], column: number) => {
+const getTrianglesByColumn = (data: string[][], column: number) => {
   const triangles = [];
   let tempAccum = [];
   for (let i = 0; i < data.length; i++) {
@@ -38,12 +40,12 @@ const getTrianglesForColumn = (data: string[][], column: number) => {
 // triangles: [ [sideA1, sideB1, sideC1], [sideA2, sideB2, sideC2] ...];
 const triangles: string[][] = data.split('\n').map(raw => raw.trim().split(/\s+/));
 
-const trianglesColumn0 = getTrianglesForColumn(triangles, 0); 
-const trianglesColumn1 = getTrianglesForColumn(triangles, 1);
-const trianglesColumn2 = getTrianglesForColumn(triangles, 2);
+const trianglesColumn0 = getTrianglesByColumn(triangles, 0); 
+const trianglesColumn1 = getTrianglesByColumn(triangles, 1);
+const trianglesColumn2 = getTrianglesByColumn(triangles, 2);
 const trianglesVertically = [...trianglesColumn0, ...trianglesColumn1, ...trianglesColumn2];
-const validTrianglesVertically = countTriangles(trianglesVertically);
+const validTrianglesVertically = countValidTriangles(trianglesVertically);
 console.log(`# of valid vertical triangles: ${validTrianglesVertically}`);
 
-const validTrianglesHorizontally = countTriangles(triangles);
+const validTrianglesHorizontally = countValidTriangles(triangles);
 console.log(`# of valid horizontal triangles: ${validTrianglesHorizontally}`);
