@@ -22,7 +22,8 @@ possibleRooms.forEach(possibleRoom => {
      map.has(letter) ? map.set(letter, map.get(letter) + 1) : map.set(letter, 1), new Map<string, number>());
 
   const topFiveFrequentLetters: string = Array.from(letterFrequencyMap)
-    .sort((a, b) => (a[1] - b[1] === 0) ? a[0].charCodeAt(0) - b[0].charCodeAt(0) : b[1] - a[1]).slice(0, 5)
+    .sort((a, b) => (a[1] - b[1] === 0) ? a[0].charCodeAt(0) - b[0].charCodeAt(0) : b[1] - a[1])
+    .slice(0, 5)
     .map(letterCount => letterCount[0])
     .join('');
 
