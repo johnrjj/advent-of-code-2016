@@ -39,13 +39,3 @@ const run = (input: string, passwordLength: number): string => {
 console.log('Running...This may take a minute.');
 const password = run(input, 8);
 console.log(`Found password: ${password}`);
-
-
-
-
-
-
-
-
-
-
